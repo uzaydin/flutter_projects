@@ -2,38 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:mealsapp/models/category.dart';
 
 class CategoryCard extends StatelessWidget {
+  const CategoryCard(
+      {super.key, required this.category, required this.onCategoryClick});
   final Category category;
-  final Function(Category) onTap;
-
-  const CategoryCard({
-    Key? key,
-    required this.category,
-    required this.onTap,
-  }) : super(key: key);
-
+  final void Function() onCategoryClick;
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      // onTap: onCategoryClick, -> Sadece dışarıyı haberdar et;
       onTap: () {
-        onTap(category);
+        onCategoryClick(); // Dışarıyı haberdar et
+        // Varsa diğer işlemleri yürüt.
       },
       child: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              category.color.withOpacity(0.7),
-              category.color.withOpacity(0.3)
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.circular(16),
-        ),
+            gradient: LinearGradient(colors: [
+              category.color.withOpacity(0.5),
+              category.color.withOpacity(0.9)
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight),
+            borderRadius: BorderRadius.circular(16)),
         padding: const EdgeInsets.all(16.0),
-        child: Text(
-          category.name,
-          style: const TextStyle(fontSize: 20),
-        ),
+        child: Text(category.name),
       ),
     );
   }
