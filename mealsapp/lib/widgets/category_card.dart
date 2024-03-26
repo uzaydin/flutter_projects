@@ -4,8 +4,10 @@ import 'package:mealsapp/models/category.dart';
 class CategoryCard extends StatelessWidget {
   const CategoryCard(
       {super.key, required this.category, required this.onCategoryClick});
+
   final Category category;
   final void Function() onCategoryClick;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
