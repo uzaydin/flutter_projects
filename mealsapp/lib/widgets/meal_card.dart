@@ -3,19 +3,14 @@ import 'package:mealsapp/models/meal.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealCard extends StatelessWidget {
-  const MealCard({super.key, required this.meal, required this.onSelectedMeal});
-
+  const MealCard({super.key, required this.meal, required this.onTap});
   final Meal meal;
-  final void Function(Meal meal) onSelectedMeal;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        onTap: () {
-          // onTap' e fonksiyon tanımlıyoruz.
-          onSelectedMeal(meal);
-        },
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
         child: Stack(
           children: [
             FadeInImage(
