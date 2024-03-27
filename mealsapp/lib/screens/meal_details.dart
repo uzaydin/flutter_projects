@@ -20,7 +20,7 @@ class MealDetails extends StatelessWidget {
             height: 20,
           ),
           // Meal.ingridients sınıfından aldıgımız listeler üzerinde döngü yapıp ekrana yazdırıyoruz.
-          for (final ingridient in meal.ingredients) Text(ingridient)
+          for (final ingridient in meal.ingredients) Text(ingridient) // deneme
         ],
       ),
     );
