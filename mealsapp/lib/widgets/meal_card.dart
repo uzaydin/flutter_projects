@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mealsapp/models/meal.dart';
+import 'package:mealsapp/screens/meal_details.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealCard extends StatelessWidget {
-  const MealCard({super.key, required this.meal, required this.onTap});
+  const MealCard({super.key, required this.meal});
   final Meal meal;
-  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (ctx) => MealDetails(meal: meal)));
+      },
       child: Card(
         child: Stack(
           children: [

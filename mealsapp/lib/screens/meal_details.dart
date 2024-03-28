@@ -1,41 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealsapp/models/meal.dart';
-import 'package:transparent_image/transparent_image.dart';
+import 'package:mealsapp/providers/favorites_provider.dart';
 
-class MealsDetail extends StatelessWidget {
+class MealDetails extends ConsumerStatefulWidget {
+  const MealDetails({Key? key, required this.meal}) : super(key: key);
   final Meal meal;
-  const MealsDetail({super.key, required this.meal});
 
   @override
+  _MealDetailsState createState() => _MealDetailsState();
+}
+
+class _MealDetailsState extends ConsumerState<MealDetails> {
+  @override
   Widget build(BuildContext context) {
+    final favorites = ref.watch(favoriteMealsProvider);
+
     return Scaffold(
-        appBar: AppBar(title: Text(meal.name)),
+        appBar: AppBar(
+          title: Text(widget.meal.name),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  ref
+                      .read(favoriteMealsProvider.notifier)
+                      .toggleMealFavorite(widget.meal);
+                },
+                icon: Icon(favorites.contains(widget.meal)
+                    ? Icons.favorite
+                    : Icons.favorite_border))
+          ],
+        ),
         body: Column(
           children: [
-            FadeInImage(
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: meal.ingredients.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Text(
-                    meal.ingredients[index],
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green),
-                  );
-                },
-              ),
-            ),
+            Image.network(widget.meal.imageUrl),
+            Text(widget.meal.name)
           ],
         ));
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mealsapp/data/meal_data.dart';
 import 'package:mealsapp/models/category.dart';
 import 'package:mealsapp/models/meal.dart';
-import 'package:mealsapp/screens/meal_details.dart';
+import 'package:mealsapp/screens/meal_details.dart'
 import 'package:mealsapp/widgets/meal_card.dart';
 
 class Meals extends StatelessWidget {
