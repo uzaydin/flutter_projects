@@ -8,10 +8,10 @@ class MealDetails extends ConsumerStatefulWidget {
   final Meal meal;
 
   @override
-  _MealDetailsState createState() => _MealDetailsState();
+  MealDetailsState createState() => MealDetailsState();
 }
 
-class _MealDetailsState extends ConsumerState<MealDetails> {
+class MealDetailsState extends ConsumerState<MealDetails> {
   @override
   Widget build(BuildContext context) {
     final favorites = ref.watch(favoriteMealsProvider);

@@ -27,7 +27,6 @@ class Categories extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Kategoriler"),
         actions: [
-          // TODO: Favoriler sayfasına geçiş..
           IconButton(
               onPressed: () {
                 Navigator.of(context).push(
