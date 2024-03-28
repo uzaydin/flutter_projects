@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mealsapp/data/meal_data.dart';
 import 'package:mealsapp/models/category.dart';
 import 'package:mealsapp/models/meal.dart';
-import 'package:mealsapp/screens/meal_details.dart'
 import 'package:mealsapp/widgets/meal_card.dart';
 
 class Meals extends StatelessWidget {
@@ -15,15 +14,7 @@ class Meals extends StatelessWidget {
 
     // ListView
     Widget widget = ListView.builder(
-      itemBuilder: (context, index) => MealCard(
-        meal: mealList[index],
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => MealsDetail(meal: mealList[index])));
-        },
-      ),
+      itemBuilder: (context, index) => MealCard(meal: mealList[index]),
       itemCount: mealList.length,
     );
 
