@@ -5,7 +5,9 @@ class Meal {
     required this.name,
     required this.imageUrl,
     required this.ingredients,
-    required this.rating,
+    required this.duration,
+    required this.complexity,
+    required this.steps,
   });
 
   final String id;
@@ -13,5 +15,7 @@ class Meal {
   final String name;
   final String imageUrl;
   final List<String> ingredients;
-  final double rating;
+  final int duration;
+  final String complexity;
+  final List<String> steps;
 }
