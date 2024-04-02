@@ -38,7 +38,7 @@ class Categories extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Kategoriler"),
         actions: [
-          // Favoriler sayfasına geçiş..
+          // Favoriler sayfasına geçiş.
           IconButton(
               onPressed: () {
                 _favoriteScreen(context);

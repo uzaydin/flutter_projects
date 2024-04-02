@@ -9,7 +9,7 @@ final theme = ThemeData(
     brightness: Brightness.dark,
   ),
 );
-// ThemeData detaylıca araştır.
+
 void main() {
   runApp(
     ProviderScope(
