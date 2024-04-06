@@ -6,7 +6,7 @@ import 'package:mealsapp/screens/meal_details.dart';
 import 'package:mealsapp/widgets/meal_card.dart';
 
 class Favorites extends ConsumerStatefulWidget {
-  const Favorites({Key? key}) : super(key: key);
+  const Favorites({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -24,6 +24,7 @@ class _FavoritesState extends ConsumerState<Favorites> {
         itemCount: favorites.length,
         itemBuilder: (ctx, index) {
           final favoriteMeal = favorites[index];
+
           return MealCard(
             meal: favoriteMeal,
             onSelectedMeal: (meal) {
